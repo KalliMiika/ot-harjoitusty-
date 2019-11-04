@@ -1,0 +1,96 @@
+commit 5a2311e362f19f9f323f5b0cc4b498e8cf4e4c39 (HEAD -> master)
+Author: KalliMiika <miika.kallioinen@helsinki.fi>
+Date:   Mon Nov 4 21:19:57 2019 +0200
+
+    muutoksia
+
+ tiedostoja/file2             | 0
+ tiedostoja/{file1 => file22} | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit bab0c02acbfbe4f58cefc63e5f10fde063d0c440
+Author: KalliMiika <miika.kallioinen@helsinki.fi>
+Date:   Mon Nov 4 21:16:21 2019 +0200
+
+    tiedostojen lis<C3><A4>ys
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 12a544b293fd0b442e619abb2090b9390eac193b
+Author: KalliMiika <miika.kallioinen@helsinki.fi>
+Date:   Mon Nov 4 20:54:18 2019 +0200
+
+    muutoksia
+
+ eka.txt    | 2 +-
+ kolmas.txt | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)                                                                                                                                                                                               commit cacfb25fffad0596acfbe0f88e81126552f7c86c                                                                         Author: KalliMiika <miika.kallioinen@helsinki.fi>                                                                       Date:   Mon Nov 4 20:39:20 2019 +0200                                                                                                                                                                                                               uudelleennime<C3><A4>minen                                                                                                                                                                                                                   eka.txt | 1 +                                                                                                           1 file changed, 1 insertion(+)
+
+commit 48a3af48ff905893202dd59d024404d666dd0fd4
+Author: KalliMiika <miika.kallioinen@helsinki.fi>
+Date:   Mon Nov 4 20:38:54 2019 +0200
+
+    nimenmuutos
+
+ tiedosto.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit b4583b0d8ff18071c5ff755cc74c541bb02ea07b
+Author: KalliMiika <miika.kallioinen@helsinki.fi>
+Date:   Mon Nov 4 20:37:57 2019 +0200
+
+    poistettu toinen
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit ea46485376714eae95e181638ee0c18895762d30
+Author: KalliMiika <miika.kallioinen@helsinki.fi>
+Date:   Sun Nov 3 20:48:17 2019 +0200
+
+    jotain on tehty
+
+ stuff/jokin.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit b3a2284f8dd7e3a3650fef5cf6fbb68795778d78
+Author: KalliMiika <miika.kallioinen@helsinki.fi>
+Date:   Sun Nov 3 20:44:07 2019 +0200
+
+    muutoksia tehty
+
+ kolmas.txt | 1 +
+ toinen.txt | 1 +
+ 2 files changed, 2 insertions(+)
+
+commit 7e6218e9f090c006e92b70e9904402d1ac5bb70c
+Author: KalliMiika <miika.kallioinen@helsinki.fi>
+Date:   Sun Nov 3 20:43:26 2019 +0200
+
+    kolmannen lis<C3><A4>ys
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit a8b52f8cdeb6d5379f9aa2058025d59ed64f2589
+Author: KalliMiika <miika.kallioinen@helsinki.fi>
+Date:   Sun Nov 3 20:41:07 2019 +0200
+
+    muutos ja lis<C3><A4>ys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit a68c6c8ab0eaf968f4c3c011ed13ce09a84a3461
+Author: KalliMiika <miika.kallioinen@helsinki.fi>
+Date:   Sun Nov 3 20:15:22 2019 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+(END)   
