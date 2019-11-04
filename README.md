@@ -5,3 +5,4 @@
 #### [komentorivi.txt](https://github.com/KalliMiika/ot-harjoitusty-/blob/master/laskarit/viikko1/komentorivi.txt)
 
 terveisiä paikalliselta koneelta
+tahallinen epäsynkronointi t: paikallinen
