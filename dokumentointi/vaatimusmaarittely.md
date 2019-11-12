@@ -10,6 +10,18 @@ Sovellus on yksinpeli, eli sitä voi pelata vain yksi pelaaja kerrallaan. Myöhe
 
 ## Käyttöliittymäluonnos
 
+Sovelluksen aloitusruutuhahmotelma
+
+<img src="https://github.com/KalliMiika/ot-harjoitusty-/blob/master/dokumentointi/aloitusruutuhahmotelma.png">
+
+Pelin ulkoasun hahmotelma
+
+<img src="https://github.com/KalliMiika/ot-harjoitusty-/blob/master/dokumentointi/pelihahmotelma.png">
+
+Huipputulos listauksen hahmotelma
+
+<img src="https://github.com/KalliMiika/ot-harjoitusty-/blob/master/dokumentointi/highscorehahmotelma.png">
+
 ## Perusversion tarjoama toiminnallisuus
 
 ### Ennen pelin alkua
