@@ -1,7 +1,6 @@
 package asteroids.objects;
 
 import javafx.geometry.Point2D;
-import javafx.scene.shape.Polygon;
 
 public class Asteroid extends GameObject {
     
@@ -10,6 +9,10 @@ public class Asteroid extends GameObject {
     public Asteroid(double x, double y, double size, int rotation, Point2D velocity){
         super(x, y, new PolygonFactory().createRandomPolygon(size), velocity);
         this.rotation = rotation;
+    }
+    
+    public Point2D getLocation(){
+        return new Point2D(super.x, super.y);
     }
     
     public void update(){
