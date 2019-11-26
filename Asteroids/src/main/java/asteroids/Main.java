@@ -4,7 +4,7 @@ import asteroids.game.Game;
 
 public class Main {
     
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Game.main(args);
     }
 }

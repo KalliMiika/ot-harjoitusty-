@@ -12,15 +12,15 @@ Sovellus on yksinpeli, eli sitä voi pelata vain yksi pelaaja kerrallaan. Myöhe
 
 Sovelluksen aloitusruutuhahmotelma
 
-<img src="https://github.com/KalliMiika/ot-harjoitusty-/blob/master/dokumentointi/aloitusruutuhahmotelma.png">
+<img src="https://github.com/KalliMiika/ot-harjoitusty-/blob/master/dokumentointi/images/aloitusruutuhahmotelma.png">
 
 Pelin ulkoasun hahmotelma
 
-<img src="https://github.com/KalliMiika/ot-harjoitusty-/blob/master/dokumentointi/pelihahmotelma.png">
+<img src="https://github.com/KalliMiika/ot-harjoitusty-/blob/master/dokumentointi/images/pelihahmotelma.png">
 
 Huipputulos listauksen hahmotelma
 
-<img src="https://github.com/KalliMiika/ot-harjoitusty-/blob/master/dokumentointi/highscorehahmotelma.png">
+<img src="https://github.com/KalliMiika/ot-harjoitusty-/blob/master/dokumentointi/images/highscorehahmotelma.png">
 
 ## Perusversion tarjoama toiminnallisuus
 
@@ -34,14 +34,14 @@ Huipputulos listauksen hahmotelma
 
 ### Pelin Aloitettuaan
 
-- Käyttäjä voi kiihdyttää tai hidastaa aluksensa vauhtia(pelaajahahmo).
+- Käyttäjä voi kiihdyttää tai hidastaa aluksensa vauhtia(pelaajahahmo). "Tehty"
 
-- Käyttäjä voi kääntää aluksen suuntaa.
+- Käyttäjä voi kääntää aluksen suuntaa. "Tehty"
 
-- Käyttäjä voi ampua aluksen osoittamaan suuntaan.
-  - Jos ammus osuu asteroidiin niin se hajoaa. Iso asteroidi hajoaa kahdeksi pieneki asteroidiksi ja pieni asteroidi katoaa kokonaan.
+- Käyttäjä voi ampua aluksen osoittamaan suuntaan. "Tehty"
+  - Jos ammus osuu asteroidiin niin se hajoaa. Iso asteroidi hajoaa kahdeksi pieneki asteroidiksi ja pieni asteroidi katoaa kokonaan. 
   
-- Käyttäjä voi ottaa osumaa asteroidista.
+- Käyttäjä voi ottaa osumaa asteroidista. "Tehty"
   - Peli loppuu kun näin käy.
   
 ## Jatkokehitysideoita
