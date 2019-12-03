@@ -1,6 +1,7 @@
 
 import asteroids.game.Game;
 import asteroids.objects.Player;
+import asteroids.objects.Projectile;
 import javafx.geometry.Point2D;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
@@ -37,5 +38,28 @@ public class PlayerTest {
         player.accelerate();
         player.update();
         assertEquals(playerLocation, player.getLocation());
+    }
+    
+    @Test
+    public void destroyedPlayerCannotRotate(){
+        double rotation = player.getObject().getRotate();
+        player.destroy();
+        player.rotate(10);
+        assertEquals(rotation, player.getObject().getRotate(), 0);
+    }
+    
+    @Test
+    public void destroyedPlayerCannotMove(){
+        Point2D playerLocation = player.getLocation();
+        player.destroy();
+        player.accelerate();
+        player.update();
+        assertEquals(playerLocation, player.getLocation());
+    }
+    
+    @Test
+    public void projectileIsCreatedWhenPlayerFires(){
+        Projectile p = player.fire();
+        assertEquals(300, p.update());
     }
 }

@@ -39,7 +39,7 @@ Huipputulos listauksen hahmotelma
 - Käyttäjä voi kääntää aluksen suuntaa. "Tehty"
 
 - Käyttäjä voi ampua aluksen osoittamaan suuntaan. "Tehty"
-  - Jos ammus osuu asteroidiin niin se hajoaa. Iso asteroidi hajoaa kahdeksi pieneki asteroidiksi ja pieni asteroidi katoaa kokonaan. 
+  - Jos ammus osuu asteroidiin niin se hajoaa. Iso asteroidi hajoaa kahdeksi pieneki asteroidiksi ja pieni asteroidi katoaa kokonaan. "Tehty"
   
 - Käyttäjä voi ottaa osumaa asteroidista. "Tehty"
   - Peli loppuu kun näin käy.

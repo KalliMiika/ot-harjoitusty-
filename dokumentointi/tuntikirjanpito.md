@@ -55,3 +55,18 @@
   - testataan että ammus lentää sinne minne se ammuttiin
   
 - Checkstyle korjauksia
+
+## Viikon 4 Deadline	Tunteja viikolta: 5h Tunteja yhteensä: 20h 20min
+
+### 02.12.2019 Noin 13:00-15:00
+
+- Asteroidi hajoaa pienemmiksi asteroideiksi tuhoutuessaan.
+
+### 03.12.2019 Noin 16:00-19:00
+
+- Pisteiden kertyminen ja ajastin lisätty.
+
+- Ammuksille lisätty elinaika, jonka päätyttyä ne katoavat.
+
+- Koodin uudelleensijoittelua ja jakamista pienemmiksi metodeiksi selvyyden vuoksi.
+
