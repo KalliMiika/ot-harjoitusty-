@@ -4,6 +4,7 @@
 
 ## Dokumentaatio
 
+#### [Viikon 5 Release](https://github.com/KalliMiika/ot-harjoitusty-/releases/tag/viikko5)
 #### [Käyttöohje](https://github.com/KalliMiika/ot-harjoitusty-/blob/master/dokumentointi/käyttöohje.md)
 #### [Määrittelydokumentti](https://github.com/KalliMiika/ot-harjoitusty-/blob/master/dokumentointi/vaatimusmaarittely.md)
 #### [Tuntikirjanpito](https://github.com/KalliMiika/ot-harjoitusty-/blob/master/dokumentointi/tuntikirjanpito.md)
