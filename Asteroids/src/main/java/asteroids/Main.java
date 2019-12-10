@@ -1,10 +1,10 @@
 package asteroids;
 
-import asteroids.game.Game;
+import asteroids.ui.Launcher;
 
 public class Main {
     
     public static void main(String[] args) {
-        Game.main(args);
+        Launcher.main(args);
     }
 }

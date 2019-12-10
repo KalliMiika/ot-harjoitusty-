@@ -11,6 +11,14 @@ public abstract class GameObject {
     protected Polygon object;
     protected Point2D velocity;
     
+    /**
+     * GameObject-luokan konstruktori
+     * 
+     * @param x         GameObject-olion aloituspisteen x-koordinaatti
+     * @param y         GameObject-olion aloituspisteen y-koordinaatti
+     * @param object    GameObject-olion graafinen monikulmio
+     * @param velocity  GameObject-olion liikettä kuvaava vektori
+     */
     public GameObject(double x, double y, Polygon object, Point2D velocity) {
         this.x = x;
         this.y = y;
@@ -18,10 +26,20 @@ public abstract class GameObject {
         this.velocity = velocity;
     }
     
+    /**
+     * Metodi palauttaa GameObject-olion graafisen monikulmion
+     * 
+     * @return Poligon-Olio joka kuvastaa GameObject-olion graafista monikulmiota
+     */
     public Polygon getObject() {
         return this.object;
     }
   
+    /**
+     * Metodi palauttaa GameObject-olion sijainnin koordinaattipisteenä.
+     * 
+     * @return GameObject-olion x- ja y-koordinaatit Point2D-oliona
+     */
     public Point2D getLocation() {
         return new Point2D(this.x, this.y);
     }
@@ -45,8 +63,14 @@ public abstract class GameObject {
         this.object.setTranslateY(this.y);
     }
 
+    /**
+     * Metodi tarkastaa törmäävätkö kaksi GameObject-oliota toisiinsa
+     * 
+     * @param otherObject   Toinen GameObject-olio jonka kanssa törmäystä tarkastellaan
+     * @return false jos törmäystä ei tapahdu, true jos tapahtuu
+     */
     public boolean checkCollision(GameObject otherObject) {
-        Shape tormaysalue = Shape.intersect(this.object, otherObject.getObject());
-        return tormaysalue.getBoundsInLocal().getWidth() != -1;
+        Shape collisionArea = Shape.intersect(this.object, otherObject.getObject());
+        return collisionArea.getBoundsInLocal().getWidth() != -1;
     }
 }

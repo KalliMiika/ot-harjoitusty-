@@ -32,6 +32,7 @@
                 <configuration>
                     <excludes>
                         <exclude>asteroids/game/*</exclude>
+                        <exclude>asteroids/ui/*</exclude>
                     </excludes>
                 </configuration>
                 <executions>

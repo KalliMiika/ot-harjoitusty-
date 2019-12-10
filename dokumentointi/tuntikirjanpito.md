@@ -56,7 +56,7 @@
   
 - Checkstyle korjauksia
 
-## Viikon 4 Deadline	Tunteja viikolta: 5h Tunteja yhteensä: 20h 20min
+## Viikon 5 Deadline	Tunteja viikolta: 5h Tunteja yhteensä: 20h 20min
 
 ### 02.12.2019 Noin 13:00-15:00
 
@@ -69,4 +69,34 @@
 - Ammuksille lisätty elinaika, jonka päätyttyä ne katoavat.
 
 - Koodin uudelleensijoittelua ja jakamista pienemmiksi metodeiksi selvyyden vuoksi.
+
+- Asteroidien hajoamiseen liittyviä testejä lisätty.
+
+- Tuhoutuneen pelaajan testejä lisätty.
+
+## Viikon 6 Deadline	Tunteja viikolta: 7h 30min Tunteja yhteensä: 27h 50min
+
+### 09.12.2019 noin 15:00-18:00
+
+- Päävalikko lisätty
+
+  - Käyttäjä voi aloittaa uuden pelin tai sulkea pelin.
+  
+- Pause toiminnallisuus lisätty peliin
+
+  - Pelaaja voi pysäyttää pelin painamalla ESC-näppäintä, jonka jälkeen hän voi halutessaan jatkaa peliä, siirtyä päävalikkoon tai sulkea pelin.
+
+- Pelin Loppuruutu lisätty
+
+  - Pelaajan nauttiessaan asteroidia, esitetään hänelle lopullinen pistesaalis. Pelaaja voi halutessaan aloittaa uuden pelin, siirtyä päävalikkoon tai sulkea pelin.
+  
+### 10.12.2019 noin 16:00-19:30
+
+- Huipputuloslistaus lisätty peliin.
+
+  - Pelaajan pisteet pelin päätyttyä otetaan talteen ja lisätään huipputuloslistaan.
+  - Päävalikosta pääsee selaamaan huipputuloksia, joita ei vielä järjestetä
+  
+- Javadoc lisäilyjä
+  
 
