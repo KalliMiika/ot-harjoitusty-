@@ -74,7 +74,7 @@
 
 - Tuhoutuneen pelaajan testejä lisätty.
 
-## Viikon 6 Deadline	Tunteja viikolta: 7h 30min Tunteja yhteensä: 27h 50min
+## Viikon 6 Deadline	Tunteja viikolta: 8h 10min Tunteja yhteensä: 28h 30min
 
 ### 09.12.2019 noin 15:00-18:00
 
@@ -90,7 +90,7 @@
 
   - Pelaajan nauttiessaan asteroidia, esitetään hänelle lopullinen pistesaalis. Pelaaja voi halutessaan aloittaa uuden pelin, siirtyä päävalikkoon tai sulkea pelin.
   
-### 10.12.2019 noin 16:00-19:30
+### 10.12.2019 noin 16:00-21:10
 
 - Huipputuloslistaus lisätty peliin.
 
@@ -99,4 +99,4 @@
   
 - Javadoc lisäilyjä
   
-
+- Dokumentoinnin lisäilyjä
