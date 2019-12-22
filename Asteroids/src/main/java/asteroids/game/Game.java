@@ -64,7 +64,7 @@ public class Game {
      * Konstruktori testiluokkia varten
      * @param DummyGameConstructor 
      */
-    public Game(boolean DummyGameConstructor){
+    public Game(boolean DummyGameConstructor) {
         this.instance = this;
         player = new Player();
         projectiles = new ArrayList<>();
