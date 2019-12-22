@@ -10,17 +10,21 @@ Sovellus on yksinpeli, eli sitä voi pelata vain yksi pelaaja kerrallaan. Myöhe
 
 ## Käyttöliittymäluonnos
 
-Sovelluksen aloitusruutuhahmotelma
+Sovelluksen aloitusruutu
 
-<img src="https://github.com/KalliMiika/ot-harjoitusty-/blob/master/dokumentointi/images/aloitusruutuhahmotelma.png">
+<img src="https://github.com/KalliMiika/ot-harjoitusty-/blob/master/dokumentointi/images/mainmenu.png">
 
-Pelin ulkoasun hahmotelma
+Pelin ulkoasu
 
-<img src="https://github.com/KalliMiika/ot-harjoitusty-/blob/master/dokumentointi/images/pelihahmotelma.png">
+<img src="https://github.com/KalliMiika/ot-harjoitusty-/blob/master/dokumentointi/images/peli.png">
 
-Huipputulos listauksen hahmotelma
+Pauseruutu
 
-<img src="https://github.com/KalliMiika/ot-harjoitusty-/blob/master/dokumentointi/images/highscorehahmotelma.png">
+<img src="https://github.com/KalliMiika/ot-harjoitusty-/blob/master/dokumentointi/images/paused.png">
+
+Huipputulos listaus
+
+<https://github.com/KalliMiika/ot-harjoitusty-/blob/master/dokumentointi/images/highscore.png">
 
 ## Perusversion tarjoama toiminnallisuus
 
@@ -34,19 +38,20 @@ Huipputulos listauksen hahmotelma
 
 ### Pelin Aloitettuaan
 
-- Käyttäjä voi kiihdyttää tai hidastaa aluksensa vauhtia(pelaajahahmo). "Tehty"
+- Käyttäjä voi kiihdyttää tai hidastaa aluksensa vauhtia(pelaajahahmo).
 
-- Käyttäjä voi kääntää aluksen suuntaa. "Tehty"
+- Käyttäjä voi kääntää aluksen suuntaa.
 
-- Käyttäjä voi ampua aluksen osoittamaan suuntaan. "Tehty"
-  - Jos ammus osuu asteroidiin niin se hajoaa. Iso asteroidi hajoaa kahdeksi pieneki asteroidiksi ja pieni asteroidi katoaa kokonaan. "Tehty"
+- Käyttäjä voi ampua aluksen osoittamaan suuntaan.
+  - Jos ammus osuu asteroidiin niin se hajoaa. Iso asteroidi hajoaa kahdeksi pieneki asteroidiksi ja pieni asteroidi katoaa kokonaan. 
   
-- Käyttäjä voi ottaa osumaa asteroidista. "Tehty"
+- Käyttäjä voi ottaa osumaa asteroidista.
   - Peli loppuu kun näin käy.
   
+- Käyttäjä voi pausettaa pelin.
+
 ## Jatkokehitysideoita
 
- - Huipputulos listaus
  - Moninpeli
  - Erilaisia aluksia (pelaajahahmoja)
  - Erilaisia teemoja (Esim. asteroiden sijaan ammutaan kananmunia joista kuoriutuu tipuja)
