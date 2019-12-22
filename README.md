@@ -6,6 +6,7 @@
 
 #### [Viikko 5 ](https://github.com/KalliMiika/ot-harjoitusty-/releases/tag/viikko5)
 #### [Viikko 6 ](https://github.com/KalliMiika/ot-harjoitusty-/releases/tag/Viikko6)
+#### [Viikko 7 ](https://github.com/KalliMiika/ot-harjoitusty-/releases/tag/Viikko7)
 
 ## Dokumentaatio
 
