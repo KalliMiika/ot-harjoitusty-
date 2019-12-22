@@ -100,3 +100,13 @@
 - Javadoc lisäilyjä
   
 - Dokumentoinnin lisäilyjä
+
+## Viikon 7 Deadline  Tunteja viikolt: 6h Tunteja yhteensä: 34h 30min
+
+### 20.12.2019 noin 15:00-18:00
+
+- Game luokka jaettu UI:n esittäväksi luokaksi ja Peliä pyörittäväksi luokaksi (Asteroids.java ja Game.java)
+
+### 22.12.2019 noin 13:00-16:00
+
+- Dokumentaation päivttelyä
