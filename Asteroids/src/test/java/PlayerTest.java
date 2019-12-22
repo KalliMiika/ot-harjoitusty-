@@ -11,11 +11,14 @@ public class PlayerTest {
     
     public PlayerTest() {
     }
+    
+    Game dummyGame;
     Player player;
 
     @Before
     public void setUp() {
-        player = new Player();
+        dummyGame = new Game(true);
+        player = dummyGame.getPlayer();
     }
    
     @Test
@@ -59,7 +62,7 @@ public class PlayerTest {
     
     @Test
     public void projectileIsCreatedWhenPlayerFires(){
-        Projectile p = player.fire();
-        assertEquals(300, p.update());
+        player.fireBlanks();
+        assertEquals(1, dummyGame.getProjectiles().size());
     }
 }

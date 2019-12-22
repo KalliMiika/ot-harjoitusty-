@@ -43,8 +43,8 @@ public class MainMenu {
         start.setStyle("-fx-font-size: 25");
         start.setPadding(new Insets(10, 10, 10, 10));
         start.setOnAction(e->{
-            Game game = new Game(stage);
-            game.start();
+            Asteroids asteroids = new Asteroids(stage);
+            asteroids.start();
         });
         menu.getChildren().add(start);
         

@@ -4,81 +4,50 @@ import asteroids.objects.Asteroid;
 import asteroids.objects.GameObject;
 import asteroids.objects.Player;
 import asteroids.objects.Projectile;
-import asteroids.ui.Launcher;
-import asteroids.ui.MainMenu;
+import asteroids.ui.Asteroids;
+import static java.awt.SystemColor.text;
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
-import javafx.animation.AnimationTimer;
-import javafx.application.Platform;
-import javafx.geometry.Insets;
 import javafx.geometry.Point2D;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.input.KeyCode;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Game {
 
     private static Game instance;
 
-    public static final int WIDTH = 1200;
-    public static final int HEIGHT = 800;
+    public static final int WIDTH = 1200; //
+    public static final int HEIGHT = 800; //
 
-    public Map<KeyCode, Boolean> pressedButtons;
+    private Player player;
+    private AtomicInteger points;
+    private AtomicInteger asteroidsDestroyed;
 
-    Player player;
-    Stage stage;
-    Pane screen;
-    Scene scene;
-    Text text;
-    AtomicInteger points;
-    AtomicInteger asteroidsDestroyed;
+    private ArrayList<Projectile> projectiles;
+    private ArrayList<Asteroid> asteroids;
 
-    ArrayList<Projectile> projectiles;
-    ArrayList<Asteroid> asteroids;
+    private long lastUpdate;
+    private int spawnTimer;
+    private int millis;
+    private int seconds;
+    private int minutes;
+    private boolean paused;
+    private boolean gameOver;
 
-    long firingCooldown;
-    long lastUpdate;
-    int spawnTimer;
-    int millis;
-    int seconds;
-    int minutes;
-    boolean paused;
-    boolean gameOver;
-
-    public Game(Stage stage) {
+    public Game() {
         this.instance = this;
-        this.stage = stage;
-    }
-
-    public static Game getInstance() {
-        return instance;
-    }
-
-    private void setup() {
-        screen = new Pane();
         player = new Player();
-        pressedButtons = new HashMap<>();
         projectiles = new ArrayList<>();
         asteroids = new ArrayList<>();
         points = new AtomicInteger();
         asteroidsDestroyed = new AtomicInteger();
-        firingCooldown = 0;
         lastUpdate = 0;
         spawnTimer = 2000;
         millis = 0;
@@ -86,69 +55,50 @@ public class Game {
         minutes = 0;
         paused = false;
         gameOver = false;
-        screen.setPrefSize(WIDTH, HEIGHT);
-        text = new Text(10, 20, "Points: 0\nAsteroids Destroyed: 0\nTime Survived: 00:00:000");
-        screen.getChildren().add(text);
-        scene = new Scene(screen);
-        scene.setOnKeyPressed(event -> {
-            pressedButtons.put(event.getCode(), Boolean.TRUE);
-        });
-        scene.setOnKeyReleased(event -> {
-            pressedButtons.put(event.getCode(), Boolean.FALSE);
-        });
-        screen.getChildren().add(player.getObject());
+        Asteroids.getInstance().addObject(player.getObject());
         generateStartingAsteroids();
         lastUpdate = System.currentTimeMillis();
     }
+    
+    /**
+     * Konstruktori testiluokkia varten
+     * @param DummyGameConstructor 
+     */
+    public Game(boolean DummyGameConstructor){
+        this.instance = this;
+        player = new Player();
+        projectiles = new ArrayList<>();
+        asteroids = new ArrayList<>();
+        points = new AtomicInteger();
+        asteroidsDestroyed = new AtomicInteger();
+        lastUpdate = 0;
+        spawnTimer = 2000;
+        millis = 0;
+        seconds = 0;
+        minutes = 0;
+        paused = false;
+        gameOver = false;
+        lastUpdate = System.currentTimeMillis();
+    }
 
-
-    private void setupScoreScreen() {
-        VBox menu = new VBox(5);
-        menu.setAlignment(Pos.CENTER);
-
-        Label title = new Label("Game Over");
-        title.setStyle("-fx-font-size: 80");
-        title.setPadding(new Insets(100, 10, 50, 10));
-        menu.getChildren().add(title);
-
-        Label pointsGained = new Label("Points: " + points);
-        pointsGained.setStyle("-fx-font-size: 50");
-        pointsGained.setPadding(new Insets(50, 10, 50, 10));
-        menu.getChildren().add(pointsGained);
-
-        Button playAgain = new Button("Play Again");
-        playAgain.setStyle("-fx-font-size: 25");
-        playAgain.setPadding(new Insets(10, 10, 10, 10));
-        playAgain.setOnAction(e -> {
-            instance = new Game(stage);
-            instance.start();
-        });
-        menu.getChildren().add(playAgain);
-
-        Button mainMenu = new Button("Main Menu");
-        mainMenu.setStyle("-fx-font-size: 25");
-        mainMenu.setPadding(new Insets(10, 10, 10, 10));
-        mainMenu.setOnAction(e -> {
-            MainMenu.getInstance().start();
-        });
-        menu.getChildren().add(mainMenu);
-
-        Button quit = new Button("Quit");
-        quit.setStyle("-fx-font-size: 25");
-        quit.setPadding(new Insets(10, 10, 10, 10));
-        quit.setOnAction(e -> {
-            Platform.exit();
-            System.exit(0);
-        });
-        menu.getChildren().add(quit);
-        screen.getChildren().add(menu);
+    public static Game getInstance() {
+        return instance;
     }
 
     private void endGame() {
         this.gameOver = true;
         player.destroy();
         saveScore();
-        setupScoreScreen();
+        Asteroids.getInstance().setupScoreScreen();
+    }
+    
+    /**
+     * Metodi joka päättää pelin testiolosuhteissa
+     */
+    public void dummyEndGame() {
+        this.gameOver = true;
+        player.destroy();
+        saveScore();
     }
 
     private void saveScore() {
@@ -163,82 +113,41 @@ public class Game {
         }
     }
 
-    private void setupPauseScreen() {
-        VBox menu = new VBox(5);
-        menu.setAlignment(Pos.CENTER);
-
-        Label title = new Label("Paused");
-        title.setStyle("-fx-font-size: 80");
-        title.setPadding(new Insets(100, 10, 100, 10));
-        menu.getChildren().add(title);
-
-        Button resumeGame = new Button("Resume Game");
-        resumeGame.setStyle("-fx-font-size: 25");
-        resumeGame.setPadding(new Insets(10, 10, 10, 10));
-        resumeGame.setOnAction(e -> {
-            screen.getChildren().remove(menu);
-            this.paused = false;
-        });
-        menu.getChildren().add(resumeGame);
-
-        Button mainMenu = new Button("Main Menu");
-        mainMenu.setStyle("-fx-font-size: 25");
-        mainMenu.setPadding(new Insets(10, 10, 10, 10));
-        mainMenu.setOnAction(e -> {
-            MainMenu.getInstance().start();
-        });
-        menu.getChildren().add(mainMenu);
-
-        Button quit = new Button("Quit");
-        quit.setStyle("-fx-font-size: 25");
-        quit.setPadding(new Insets(10, 10, 10, 10));
-        quit.setOnAction(e -> {
-            Platform.exit();
-            System.exit(0);
-        });
-        menu.getChildren().add(quit);
-        screen.getChildren().add(menu);
-    }
-
-    private void pause() {
+    /**
+     * Metodi laittaa pelin pause-tilaan.
+     */
+    public void pause() {
         this.paused = true;
-        setupPauseScreen();
     }
 
     /**
-     * Metodi rakentaa näkymän kutsumalla setup() metodia, 
-     * jonka jälkeen se käynnistää pelin.
+     * Metodi pääättää pelin pause-tilan.
      */
-    public void start() {
-        setup();
-        new AnimationTimer() {
-            @Override
-            public void handle(long present) {
-                if (paused) {
-                    return;
-                }
-                if (gameOver) {
-                    update();
-                    return;
-                }
-                handlePressedKeys();
-                update();
-                checkCollisions();
-                updatePointsAndTime();
-            }
-        }.start();
-        stage.setScene(scene);
-        stage.show();
+    public void unpause() {
+        this.paused = false;
+    }
+
+    /**
+     * Metodi joka rakentaa pelin seuraavan framen
+     */
+    public void update() {
+        if (gameOver) {
+            updateLocations();
+            return;
+        }
+        updateLocations();
+        checkCollisions();
+        updatePointsAndTime();
     }
 
     private void spawnNewAsteroid() {
         Asteroid as = generateAsteroid();
         asteroids.add(as);
-        screen.getChildren().add(as.getObject());
+        Asteroids.getInstance().addObject(as.getObject());
         spawnTimer = 2000;
     }
 
-    private void update() {
+    private void updateLocations() {
         player.update();
         asteroids.forEach((as) -> as.update());
         List<Projectile> deadProjectiles = new ArrayList<>();
@@ -266,12 +175,11 @@ public class Game {
             seconds -= 60;
             minutes++;
         }
-        text.setText("Points: " + points + "\nAsteroids Destroyed: " + asteroidsDestroyed + "\nTime Survived: " + minutes + ":" + seconds + ":" + millis);
     }
 
     private void removeDeadProjectiles(List<Projectile> deadProjectiles) {
         deadProjectiles.forEach(p -> {
-            screen.getChildren().remove(p.getObject());
+            Asteroids.getInstance().removeObject(p.getObject());
             projectiles.remove(p);
         });
     }
@@ -298,7 +206,7 @@ public class Game {
             });
         });
         collisions.forEach(col -> {
-            screen.getChildren().remove(col.getObject());
+            Asteroids.getInstance().removeObject(col.getObject());
             if (asteroids.contains(col)) {
                 asteroids.remove(col);
             }
@@ -308,34 +216,8 @@ public class Game {
         });
         newAsteroids.forEach(as -> {
             asteroids.add(as);
-            screen.getChildren().add(as.getObject());
+            Asteroids.getInstance().addObject(as.getObject());
         });
-    }
-
-    private void handlePressedKeys() {
-        if (pressedButtons.getOrDefault(KeyCode.LEFT, false)) {
-            player.rotate(-5);
-        }
-        if (pressedButtons.getOrDefault(KeyCode.RIGHT, false)) {
-            player.rotate(5);
-        }
-        if (pressedButtons.getOrDefault(KeyCode.UP, false)) {
-            player.accelerate();
-        }
-        if (pressedButtons.getOrDefault(KeyCode.SPACE, false)) {
-            if (System.currentTimeMillis() > firingCooldown + 1000) {
-                addNewProjectile(player.fire());
-            }
-        }
-        if (pressedButtons.getOrDefault(KeyCode.ESCAPE, false)) {
-            pause();
-        }
-    }
-
-    private void addNewProjectile(Projectile p) {
-        screen.getChildren().add(p.getObject());
-        projectiles.add(p);
-        firingCooldown = System.currentTimeMillis();
     }
 
     private Asteroid generateAsteroid() {
@@ -390,13 +272,14 @@ public class Game {
             asteroids.add(generateAsteroid());
         }
         asteroids.forEach((as) -> {
-            screen.getChildren().add(as.getObject());
+            Asteroids.getInstance().addObject(as.getObject());
         });
     }
 
     /**
-     * Metodi palauttaa listan, joka sisältää pelissä olemassa olevat projectile-oliot
-     * 
+     * Metodi palauttaa listan, joka sisältää pelissä olemassa olevat
+     * projectile-oliot
+     *
      * @return Olemassa olevat Projectile-oliot
      */
     public List<Projectile> getProjectiles() {
@@ -404,8 +287,9 @@ public class Game {
     }
 
     /**
-     * Metodi palauttaa listan, joka sisältää pelissä olemassa olevat asteroid-oliot
-     * 
+     * Metodi palauttaa listan, joka sisältää pelissä olemassa olevat
+     * asteroid-oliot
+     *
      * @return Olemassa olevat Asteroid-oliot
      */
     public List<Asteroid> getAsteroids() {
@@ -414,6 +298,7 @@ public class Game {
 
     /**
      * Metodi palauttaa pelaajahahmo-olion
+     *
      * @return Pelaajahahmo-olio
      */
     public Player getPlayer() {
@@ -421,11 +306,48 @@ public class Game {
     }
 
     /**
-     * Metodi palauttaa Pane-elementin, joka sisältää kaikki GameObject-olioiden kuviot
-     * 
-     * @return Pane-elementti johon peli visualisoidaan.
+     * Metodi palauttaa pelin pause-statuksen
+     *
+     * @return True, jos peli on pausettu, muutoin false
      */
-    public Pane getScreen() {
-        return this.screen;
+    public boolean isPaused() {
+        return this.paused;
+    }
+
+    /**
+     * Metodi palauttaa pelin loppu-statuksen
+     *
+     * @return True, jos pelin on loppunut, muutoin false
+     */
+    public boolean isGameOver() {
+        return this.gameOver;
+    }
+
+    /**
+     * Metodi palauttee kertyneiden pisteiden lukumäärän
+     *
+     * @return Pisteiden lukumäärä AtomicInteger muuttujana
+     */
+    public AtomicInteger getPoints() {
+        return this.points;
+    }
+
+    /**
+     * Metodi palauttaa kuluneen ajan pelin alusta
+     *
+     * @return String-tyypin muuttuja joka sisältää kuluneen ajan pelin alusta
+     */
+    public String getTime() {
+        return minutes + ":" + seconds + ":" + millis;
+    }
+
+    /**
+     * Metodi palauttaa tuhottujen asteroidien lukumäärän
+     *
+     * @return AtomicInteger-tyypin muuttuja joka sisältää tuhottujen
+     * asteroidien lukumäärän
+     */
+    public AtomicInteger getAsteroidsDestroyed() {
+        return this.asteroidsDestroyed;
     }
 }

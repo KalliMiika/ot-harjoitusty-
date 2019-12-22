@@ -1,19 +1,14 @@
 package asteroids.objects;
 
 import asteroids.game.Game;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import javafx.animation.AnimationTimer;
+import asteroids.ui.Asteroids;
 import javafx.geometry.Point2D;
-import javafx.scene.Scene;
-import javafx.scene.input.KeyCode;
-import javafx.scene.layout.Pane;
 import javafx.scene.shape.Polygon;
 
 public class Player extends GameObject {
 
     private boolean destroyed = false;
+    private long firingCooldown = 0;
 
     /**
      * Player-olion konstruktori
@@ -22,9 +17,9 @@ public class Player extends GameObject {
         super(Game.WIDTH / 2, Game.HEIGHT / 2, new Polygon(-5, -5, 10, 0, -5, 5), new Point2D(0, 0));
     }
 
-    
     /**
-     * Metodi päivittää pelaajahahmon sijainnin jos pelaajahahmo ei ole tuhoutunut
+     * Metodi päivittää pelaajahahmon sijainnin jos pelaajahahmo ei ole
+     * tuhoutunut
      */
     public void update() {
         if (destroyed) {
@@ -40,11 +35,10 @@ public class Player extends GameObject {
         this.destroyed = true;
     }
 
-    
     /**
      * Metodi pyörittää pelaajahahmoa annetun parametrin verran
-     * 
-     * @param rotation  pelaajahahmon pyörityksen määrä 
+     *
+     * @param rotation pelaajahahmon pyörityksen määrä
      */
     public void rotate(int rotation) {
         if (destroyed) {
@@ -64,11 +58,29 @@ public class Player extends GameObject {
 
     /**
      * Metodi luo uuden ammuksen pelaajahahmon sijainnista
-     * @return Projectile-olio joka kuvastaa pelaajan juuri ampumaa ammusta.
      */
-    public Projectile fire() {
-        double xVel = 3 * Math.cos(Math.toRadians(super.object.getRotate()));
-        double yVel = 3 * Math.sin(Math.toRadians(super.object.getRotate()));
-        return new Projectile(super.x, super.y, new Point2D(xVel, yVel));
+    public void fire() {
+        if (firingCooldown + 1000 < System.currentTimeMillis()) {
+            double xVel = 3 * Math.cos(Math.toRadians(super.object.getRotate()));
+            double yVel = 3 * Math.sin(Math.toRadians(super.object.getRotate()));
+            Projectile p = new Projectile(super.x, super.y, new Point2D(xVel, yVel));
+            Game.getInstance().getProjectiles().add(p);
+            Asteroids.getInstance().addObject(p.getObject());
+            firingCooldown = System.currentTimeMillis();
+        }
+    }
+    
+    /**
+     * Testimetodi
+     * Metodi luo uuden ammuksen pelaajahahmon sijainnista
+     */
+    public void fireBlanks() {
+        if (firingCooldown + 1000 < System.currentTimeMillis()) {
+            double xVel = 3 * Math.cos(Math.toRadians(super.object.getRotate()));
+            double yVel = 3 * Math.sin(Math.toRadians(super.object.getRotate()));
+            Projectile p = new Projectile(super.x, super.y, new Point2D(xVel, yVel));
+            Game.getInstance().getProjectiles().add(p);
+            firingCooldown = System.currentTimeMillis();
+        }
     }
 }

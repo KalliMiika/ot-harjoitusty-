@@ -7,4 +7,5 @@
 <suppressions>
     <suppress files="asteroids.ui.HighScore.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="asteroids.ui.MainMenu.java" checks="[a-zA-Z0-9]*"/>
+	<suppress files="asteroids.ui.Asteroids.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>
